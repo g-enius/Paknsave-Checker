@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5679117C243B223600A53B5F /* Paknsave Checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Paknsave Checker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5679117C243B223600A53B5F /* Slots Checker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Slots Checker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5679117F243B223600A53B5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56791181243B223600A53B5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		56791183243B223600A53B5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		5679117D243B223600A53B5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5679117C243B223600A53B5F /* Paknsave Checker.app */,
+				5679117C243B223600A53B5F /* Slots Checker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -87,7 +87,7 @@
 			);
 			name = "Paknsave Checker";
 			productName = "Paknsave Checker";
-			productReference = 5679117C243B223600A53B5F /* Paknsave Checker.app */;
+			productReference = 5679117C243B223600A53B5F /* Slots Checker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -296,7 +296,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "nz.co.paknsave.Paknsave-Checker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Slots Checker";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -314,7 +314,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "nz.co.paknsave.Paknsave-Checker";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Slots Checker";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

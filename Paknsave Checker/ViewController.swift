@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     var triedTimes: Int! = 0
     let url = URL(string: "https://www.paknsaveonline.co.nz/CommonApi/Delivery/GetClickCollectTimeSlot?id=c0f80e87-16be-4488-9553-da437e8c6c2a")!
     let userNotificationCenter = UNUserNotificationCenter.current()
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,40 +32,57 @@ class ViewController: UIViewController {
     }
 
     @IBAction func start(_ sender: UIButton) {
-        startButton.isEnabled = false
+        let alert = UIAlertController(title: "Choose your preferred frequency", message: nil, preferredStyle: .alert)
+        alert.addTextField { textfiled in
+            textfiled.placeholder = "in seconds"
+            textfiled.keyboardType = .numberPad
+        }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true, block: { [unowned self] timer in
-            self.triedTimes = self.triedTimes + 1
-            let task = URLSession.shared.dataTask(with: self.url) { (data, response, error) in
-                DispatchQueue.main.async {
-                    guard let data = data,
-                        error == nil else {
-                            return
-                    }
-                    
-                    do {
-                        let slots = try JSONDecoder().decode(model.self, from: data).slots
-                        for slot in slots {
-                            for timeSlot in slot.timeSlots {
-                                if timeSlot.available > 0 {
-                                    self.sendNotification()
-                                    self.displayLabel.text = "You got a slot at \(Date())"
-                                    self.timer.invalidate()
-                                    return
-                                }
-                            }
+        let saveAction = UIAlertAction(title: "Save", style: .default) {[unowned self] _ in
+            let timeInterval = (alert.textFields![0].text! as NSString).doubleValue
+            
+            guard timeInterval > 0 else { return }
+            self.startButton.isEnabled = false
+
+            self.timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { [unowned self] timer in
+                self.triedTimes = self.triedTimes + 1
+                let task = URLSession.shared.dataTask(with: self.url) { (data, response, error) in
+                    DispatchQueue.main.async {
+                        guard let data = data,
+                            error == nil else {
+                                return
                         }
                         
-                        self.displayLabel.text = "tried \(self.triedTimes ?? 0)"
-                    } catch {
-                        print(error)
+                        do {
+                            let slots = try JSONDecoder().decode(model.self, from: data).slots
+                            for slot in slots {
+                                for timeSlot in slot.timeSlots {
+                                    if timeSlot.available > 0 {
+                                        self.sendNotification()
+                                        self.displayLabel.text = "You got a slot at \(Date())"
+                                        self.timer.invalidate()
+                                        return
+                                    }
+                                }
+                            }
+                            
+                            self.displayLabel.text = "tried \(self.triedTimes ?? 0)"
+                        } catch {
+                            print(error)
+                        }
                     }
                 }
-            }
-            task.resume()
-        })
+                task.resume()
+            })
+            
+            self.timer.fire()
+        }
         
-        timer.fire()
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     
