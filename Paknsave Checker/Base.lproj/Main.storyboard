@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Paknsave_Checker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CPe-Q1-NyT">
+                                <rect key="frame" x="60" y="486.5" width="72" height="30"/>
+                                <state key="normal" title="start timer"/>
+                                <connections>
+                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aEB-pH-tk3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IBL-IW-iwd">
+                                <rect key="frame" x="284" y="486.5" width="70" height="30"/>
+                                <state key="normal" title="stop timer"/>
+                                <connections>
+                                    <action selector="stop:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Amx-Zl-uwA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzX-bI-jHg">
+                                <rect key="frame" x="41.5" y="213" width="331" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FzX-bI-jHg" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="3k6-Ks-Iuh"/>
+                            <constraint firstItem="CPe-Q1-NyT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="ERK-Hb-vBL"/>
+                            <constraint firstItem="FzX-bI-jHg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="169" id="I8X-pc-Ion"/>
+                            <constraint firstItem="FzX-bI-jHg" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.8" id="ILe-gt-Crc"/>
+                            <constraint firstItem="CPe-Q1-NyT" firstAttribute="top" secondItem="FzX-bI-jHg" secondAttribute="bottom" constant="253" id="L4Q-AI-VhD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IBL-IW-iwd" secondAttribute="trailing" constant="60" id="fLa-Yn-Ysg"/>
+                            <constraint firstItem="IBL-IW-iwd" firstAttribute="centerY" secondItem="CPe-Q1-NyT" secondAttribute="centerY" id="njc-jI-kWD"/>
+                            <constraint firstItem="IBL-IW-iwd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CPe-Q1-NyT" secondAttribute="trailing" constant="10" id="pSp-ON-zz1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="displayLabel" destination="FzX-bI-jHg" id="X9x-kH-aG8"/>
+                        <outlet property="startButton" destination="CPe-Q1-NyT" id="OfB-Ls-ZU7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="138"/>
+        </scene>
+    </scenes>
+</document>
